@@ -1,1 +1,1 @@
-# My fist ruby project
+# My fist rails project
