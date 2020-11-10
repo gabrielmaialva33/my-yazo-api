@@ -1,6 +1,5 @@
 class Api::UsersController < ApplicationController
 
-
   # -> GET /users
   def index
     @user = User.all
@@ -9,12 +8,11 @@ class Api::UsersController < ApplicationController
 
   # -> GET /users/:id
   def show
-  
     @user = User.find(params[:id])
     if @user
       render json: @user
     else
-      render error: {error: 'Unable to create User.'}, status: 400
+      render error: {error: "Unable to create User."}, status: 400
     end
   end
 
@@ -24,19 +22,18 @@ class Api::UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-      render error: { error: 'Unable to create User.' }, status: 400
+      render error: {error: "Unable to create User."}, status: 400
     end
   end
 
   # -> PUT /users/:id
   def update
-    render error: { error: 'Incorrect params' }, status: 400 if validate_uuid_format(params[:id])
     @user = User.find(params[:id])
     if @user
       @user.update(user_params)
-      render json: { message: 'User successfully updated.' }, status: 200
+      render json: {message: "User successfully updated."}, status: 200
     else
-      render json: { error: 'Unable to update User.' }, status: 400
+      render json: {error: "Unable to update User."}, status: 400
     end
   end
 
@@ -45,13 +42,14 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user
       @user.update(@user.status = false)
-      render json: { message: 'User successfully deleted' }, status: 200
+      render json: {message: "User successfully deleted"}, status: 200
     else
-      render json: { error: 'Unable to delete User.' }, status: 400
+      render json: {error: "Unable to delete User."}, status: 400
     end
   end
 
   # private defs
+
   private
 
   def user_params

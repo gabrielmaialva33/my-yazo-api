@@ -1,20 +1,20 @@
 class CreateUsers < ActiveRecord::Migration[6.0]
   def up
-    create_table :users, id: :uuid, default: 'uuid_generate_v4()' do |t|
+    create_table :users, id: :uuid, default: "uuid_generate_v4()" do |t|
       t.string :name
       t.string :email
       t.string :password
 
-      create_enum 'role', %w[admin user]
-      t.enum :role, as: 'role', default: 'user'
+      create_enum "role", %w[admin user]
+      t.enum :role, as: "role", default: "user"
 
-      t.string :avatar, null: false, default: ''
+      t.string :avatar, null: false, default: ""
       t.timestamps
     end
   end
 
   def down
     drop_table :users
-    drop_enum 'role'
+    drop_enum "role"
   end
 end
