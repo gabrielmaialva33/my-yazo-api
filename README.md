@@ -41,7 +41,7 @@
 
 ## :bookmark: About
 
-**MyYazoApp** id a small project to familiarize me with the **Ruby language**. Work** by **[Gabriel Maia](https://github.com/gabrielmaialva33)**.
+**MyYazoApp** is a small project to familiarize me with the **Ruby language**. Work** by **[Gabriel Maia](https://github.com/gabrielmaialva33)**.
 
 <br>
 
