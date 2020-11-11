@@ -4,9 +4,13 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Ignore Misc files
+.idea/
+.DS_Store
+
 # Ignore bundler config.
 /.bundle
-.idea/
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -25,4 +29,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-.env
+/config/local_env.yml
+
+# Ignore application configuration
+/config/application.yml

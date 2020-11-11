@@ -1,0 +1,6 @@
+# DATABASE
+DATABASE: 'yazo'
+USERNAME: 'postgres'
+PASSWORD: 'docker'
+HOST: 'localhost'
+PORT: 5432
