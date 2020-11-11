@@ -44,7 +44,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'dotenv-rails'
 
 # use enum type postgres
-#
 gem 'active_model_serializers'
 gem 'activerecord-pg_enum'
 gem 'rack-cors'

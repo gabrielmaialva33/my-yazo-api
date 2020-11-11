@@ -11,6 +11,8 @@ class Api::UsersController < ApplicationController
 
   # -> GET /users/:id
   def show
+    return render json: { error: 'Incorrect params.' }, status: 400 if UUID.validate(params[:id]).nil?
+
     @user = User.find(params[:id])
     if @user
       render json: @user
@@ -31,6 +33,8 @@ class Api::UsersController < ApplicationController
 
   # -> PUT /users/:id
   def update
+    return render json: { error: 'Incorrect params.' }, status: 400 if UUID.validate(params[:id]).nil?
+
     @user = User.find(params[:id])
     if @user
       @user.update(user_params)
@@ -42,6 +46,8 @@ class Api::UsersController < ApplicationController
 
   # -> DELETE /users/:id -> change email
   def delete
+    return render json: { error: 'Incorrect params.' }, status: 400 if UUID.validate(params[:id]).nil?
+
     @user = User.find(params[:id])
     if @user
       @user.update({ status: false })
@@ -59,3 +65,4 @@ class Api::UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password)
   end
 end
+
