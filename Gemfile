@@ -48,3 +48,5 @@ gem 'dotenv-rails'
 gem 'active_model_serializers'
 gem 'activerecord-pg_enum'
 gem 'rack-cors'
+
+gem 'kaminari'

@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_152648) do
     t.string "title"
     t.string "author"
     t.string "co_author"
+    t.string "downlaod_link"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_152648) do
     t.string "email"
     t.string "password"
     t.enum "role", default: "user", as: "role"
+    t.boolean "status", default: true
     t.string "avatar", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

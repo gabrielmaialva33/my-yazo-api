@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
 
   # -> GET /users
   def index
-    @user = User.all
+    @user = User.page(params[:page]).find_by(status: true)
     render json: @user
   end
 
@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
     if @user
       render json: @user
     else
-      render error: {error: "Unable to create User."}, status: 400
+      render error: { error: 'Unable to create User.' }, status: 400
     end
   end
 
@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-      render error: {error: "Unable to create User."}, status: 400
+      render error: { error: 'Unable to create User.' }, status: 400
     end
   end
 
@@ -31,9 +31,9 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user
       @user.update(user_params)
-      render json: {message: "User successfully updated."}, status: 200
+      render json: { message: 'User successfully updated.' }, status: 200
     else
-      render json: {error: "Unable to update User."}, status: 400
+      render json: { error: 'Unable to update User.' }, status: 400
     end
   end
 
@@ -41,10 +41,10 @@ class Api::UsersController < ApplicationController
   def delete
     @user = User.find(params[:id])
     if @user
-      @user.update(@user.status = false)
-      render json: {message: "User successfully deleted"}, status: 200
+      @user.update({ status: false })
+      render json: { message: 'User successfully deleted' }, status: 200
     else
-      render json: {error: "Unable to delete User."}, status: 400
+      render json: { error: 'Unable to delete User.' }, status: 400
     end
   end
 
