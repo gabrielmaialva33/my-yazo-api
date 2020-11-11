@@ -36,7 +36,7 @@
 <br>
 
 <p align="center">
-    <img alt="Screens" src=".github/images/prev.png" height="350px" />
+    <img alt="Screens" src=".github/assets/images/prev.png" height="350px" />
 </p>
 
 ## :bookmark: About
