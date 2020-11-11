@@ -7,5 +7,3 @@ Rails.application.routes.draw do
     delete '/users/:id', to: 'users#delete'
   end
 end
-
-

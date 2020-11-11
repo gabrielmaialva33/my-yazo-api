@@ -49,4 +49,5 @@ gem 'active_model_serializers'
 gem 'activerecord-pg_enum'
 gem 'rack-cors'
 
+# use for paginete
 gem 'kaminari'

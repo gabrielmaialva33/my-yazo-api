@@ -1,8 +1,11 @@
 class Api::UsersController < ApplicationController
 
+  USERS_PER_PAGE = 3
+
   # -> GET /users
   def index
-    @user = User.page(params[:page]).find_by(status: true)
+    @page = params.fetch(:page, 0).to_i # to integer
+    @user = User.where(status: true).offset(@page).limit(USERS_PER_PAGE)
     render json: @user
   end
 
@@ -37,7 +40,7 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # -> DELETE /users/:id
+  # -> DELETE /users/:id -> change email
   def delete
     @user = User.find(params[:id])
     if @user
