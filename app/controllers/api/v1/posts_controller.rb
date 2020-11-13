@@ -16,7 +16,7 @@ class Api::V1::PostsController < ApplicationController
   # -> show
   def show
     @post = Post.find(params[:id])
-    render json: @post if @post
+    render 'post/show' if @post
   end
 
   # -> create

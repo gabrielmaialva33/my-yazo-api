@@ -8,12 +8,12 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://emusicstore.netlify.app'
+    origins 'localhost'
 
     resource '*',
-      headers: :any,
-      credentials: true,
-      expose: ['Authorization'],
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+             headers: :any,
+             credentials: true,
+             expose: ['Authorization'],
+             methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
