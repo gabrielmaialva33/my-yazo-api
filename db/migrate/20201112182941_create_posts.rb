@@ -1,7 +1,7 @@
 class CreatePosts < ActiveRecord::Migration[6.0]
-  def up
-    create_table :posts, id: :uuid, default: "uuid_generate_v4()" do |t|
-      t.references :user, index: true, foreign_key: true, type: "uuid"
+  def change
+    create_table :posts do |t|
+
       t.string :title
       t.string :author
       t.string :co_author, null: true
@@ -10,9 +10,5 @@ class CreatePosts < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :posts
   end
 end

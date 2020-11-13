@@ -1,8 +1,29 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  namespace :api do
+  namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resources :users, only: ["index", "show", "create", "update", "destroy"]
+      resources :posts
+      resources :instruments do
+        resources :likes, only: [:create]
+      end
     end
   end
-end
 
+  # -> auth
+  devise_for :users,
+             path: '',
+             path_names: {
+               sign_in: 'login',
+               sign_out: 'logout',
+               registration: 'signup'
+             },
+             controllers: {
+               sessions: 'sessions',
+               registrations: 'registrations'
+             }
+  devise_scope :user do
+    delete '/signout', to: 'sessions#delete'
+    get '/loggeduser', to: 'sessions#logged?'
+  end
+end
