@@ -4,7 +4,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/web%3F-no-00b8d3?style=for-the-badge" alt="Sistema web Ok" />
-  <img src="https://img.shields.io/badge/server%3F-no-00b8d3?style=for-the-badge" alt="Server Ok" />
+  <img src="https://img.shields.io/badge/server-yes-00b8d3?style=for-the-badge" alt="Server Ok" />
   <img src="https://img.shields.io/github/license/gabrielmaialva33/my-yazo-api?color=00b8d3&style=for-the-badge" alt="License" />
 </p>
 
