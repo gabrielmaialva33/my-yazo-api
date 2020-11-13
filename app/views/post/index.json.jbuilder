@@ -1,6 +1,6 @@
-json.array! @posts do |i|
-  json.id i.id
-  json.title i.title
-  json.author i.author
-  json.body i.body
+json.array! @posts do |p|
+  json.id p.id
+  json.title p.title
+  json.author p.author
+  json.body p.body
 end
