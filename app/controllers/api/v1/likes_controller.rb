@@ -8,7 +8,7 @@ module Api
 
       def create
         new_like = Like.new(user_id: @user.id, instrument_id: @instrument.id)
-        render 'likes/create.json.jbuilder' if new_like.save
+        render "likes/create.json.jbuilder" if new_like.save
       end
 
       private

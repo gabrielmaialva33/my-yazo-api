@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   respond_to :json
+
   def create
     profile = Admin.create(admin_params) if params[:admin]
     profile = Guest.create(guest_params) if params[:guest]
@@ -7,9 +8,9 @@ class RegistrationsController < Devise::RegistrationsController
     @user.profile = profile
 
     if @user.save
-      token = encode_token({ user_id: @user.id, token: 'token' })
+      token = encode_token({ user_id: @user.id, token: "token" })
       cookies[:token] = { value: token, httponly: true, site: :none }
-      render 'registrations/signup.json.jbuilder'
+      render "registrations/signup.json.jbuilder"
     else
       render json: { message: @user.errors.full_messages }
     end

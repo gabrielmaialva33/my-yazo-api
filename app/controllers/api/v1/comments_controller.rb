@@ -8,7 +8,7 @@ class Api::V1::CommentsController < ApplicationController
   def create
     @new_comment = Comment.new(user_id: info_current_user.id, post_id: @post.id,
                                message: params[:message], rate: params[:rate])
-    render 'comment/create.json.jbuilder' if @new_comment.save
+    render "comment/create.json.jbuilder" if @new_comment.save
   end
 
   # -> delete
@@ -17,11 +17,9 @@ class Api::V1::CommentsController < ApplicationController
     @comment&.delete
   end
 
-
   private
 
   def find_post
     @post = Post.find(params[:post_id])
   end
-
 end

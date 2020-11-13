@@ -10,13 +10,13 @@ class Api::V1::PostsController < ApplicationController
   def index
     @page = params.fetch(:page, 0).to_i # to integer
     @posts = Post.page(@page).per(POSTS_PER_PAGE).order(:created_at)
-    render 'post/index' if @posts
+    render "post/index" if @posts
   end
 
   # -> show
   def show
     @post = Post.find(params[:id])
-    render 'post/show' if @post
+    render "post/show" if @post
   end
 
   # -> create
